@@ -142,7 +142,10 @@ func getText(token markdown.Token) string {
 
 }
 
-const template = "<!DOCTYPE html><html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"> <style>%s</style><title>%s</title></head><body class=\"markdown-body\">%s</body></html>"
+const script = "<script type=\"text/x-mathjax-config\">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});</script><script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>"
+
+
+const template = "<!DOCTYPE html><html><head>" + script + "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"> <style>%s</style><title>%s</title></head><body class=\"markdown-body\">%s</body></html>"
 
 const style = `.markdown-body {box-sizing: border-box;min-width: 200px;max-width:
 	 	980px;margin: 0 auto;padding: 45px;}	@media (max-width: 767px) {.markdown-body
